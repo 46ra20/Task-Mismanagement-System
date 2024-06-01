@@ -15,6 +15,15 @@
                     <p class="card-text">Description: {{d.taskDescription}}</p>
                     <p class="card-text">Assign Date: {{d.taskAssignDate}}</p>
 
+
+                    {% for c in d.Category.all %}
+                    <button class="btn btn-dark btn-sm m-1 p-1" disabled>{{c}}</button>
+                    {% endfor %}
+
+
+
+
+
                     <dev class="d-flex justify-content-around border-top pt-2">
 
                         {% if d.is_completed %}
