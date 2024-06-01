@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block contant %}
+<dev class="my-3 gird">
+    <h1 class="text-center border-bottom py-3 mb-4">Your Task</h1>
+
+    <dev class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mx-auto col-11">
+
+        {% for d in data %}
+
+        <div class="col ">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h5 class="card-title border-bottom">Title: {{d.taskTitle}}</h5>
+                    <p class="card-text">Description: {{d.taskDescription}}</p>
+                    <p class="card-text">Assign Date: {{d.taskAssignDate}}</p>
+
+                    <dev class="d-flex justify-content-around border-top pt-2">
+
+                        {% if d.is_completed %}
+                        <button class="btn btn-success d-block col-12" disabled>Completed</button>
+                        {% else %}
+                        <a href={% url 'edittask' d.id %} class="btn btn-warning">Edit</a>
+                        <a href={% url 'deletetask' d.id %} class="btn btn-danger">Delete</a>
+
+                        {% endif %}
+
+                    </dev>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </dev>
+</dev>
+{% endblock contant %}
