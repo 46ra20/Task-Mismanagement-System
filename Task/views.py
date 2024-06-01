@@ -7,8 +7,8 @@ def AddTask(r):
         auth = TaskForms(r.POST)
         if auth.is_valid():
             auth.save()
-            print("save succesfully")
             auth=TaskForms()
+            return redirect("showtask")
     else:
         auth=TaskForms()
     return render(r,'task.html',{'form':auth})
